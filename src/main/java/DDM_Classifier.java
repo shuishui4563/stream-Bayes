@@ -17,7 +17,7 @@ import weka.core.Utils;
 public class DDM_Classifier  extends AbstractClassifier{
 
 
-    protected Classifier classifier = new IncreBayes();
+    protected Classifier classifier = new DecisionStumpTutorial();
 
     protected Classifier newclassifier;
 
@@ -50,8 +50,8 @@ public class DDM_Classifier  extends AbstractClassifier{
     }
 
     public void resetLearningImpl() {
-        this.classifier = new IncreBayes();
-        this.newclassifier = (IncreBayes)this.classifier.copy();
+        this.classifier = new DecisionStumpTutorial();
+        this.newclassifier = (DecisionStumpTutorial)this.classifier.copy();
         this.classifier.resetLearning();
         this.newclassifier.resetLearning();
         this.driftDetectionMethod = new EDDM();

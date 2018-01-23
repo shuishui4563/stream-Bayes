@@ -31,7 +31,7 @@ public class LfrConceptDriftStream extends AbstractOptionHandler implements
 
 
     protected void prepareForUseImpl(TaskMonitor taskMonitor, ObjectRepository objectRepository) {
-        this.inputStream = new ArffFileStream("/home/sue/Documents/stream data classification/毕业论文/dataset/usenet1.arff",-1);
+        this.inputStream = new ArffFileStream("/home/sue/Documents/stream data classification/毕业论文/dataset/HTRU2/HTRU_2.arff",-1);
         this.inputStream.prepareForUseImpl(taskMonitor,objectRepository);
 
     }

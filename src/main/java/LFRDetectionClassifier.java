@@ -23,9 +23,9 @@ import java.util.List;
  */
 public class LFRDetectionClassifier extends AbstractClassifier{
 
-    protected DecisionStumpTutorial classifier;
+    protected RuleClassifierNBayes classifier;
 
-    protected DecisionStumpTutorial newclassifier;
+    protected RuleClassifierNBayes newclassifier;
 
     protected LFR driftDetectionMethod = new LFR();
 
@@ -55,8 +55,8 @@ public class LFRDetectionClassifier extends AbstractClassifier{
     }
 
     public void resetLearningImpl() {
-        this.classifier = new DecisionStumpTutorial();
-        this.newclassifier = (DecisionStumpTutorial) this.classifier.copy();
+        this.classifier = new RuleClassifierNBayes();
+        this.newclassifier = (RuleClassifierNBayes) this.classifier.copy();
         this.classifier.resetLearning();
         this.newclassifier.resetLearning();
         this.newClassifierReset = false;
@@ -111,7 +111,7 @@ public class LFRDetectionClassifier extends AbstractClassifier{
                 this.changeDetected++;
                 this.classifier = null;
                 this.classifier = this.newclassifier;
-                this.newclassifier = new DecisionStumpTutorial();
+                this.newclassifier = new RuleClassifierNBayes();
                 this.newclassifier.resetLearning();
                 break;
             case LFR_INCONTROL_LEVEL:

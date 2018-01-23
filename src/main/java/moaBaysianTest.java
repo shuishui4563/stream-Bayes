@@ -30,11 +30,12 @@ public class moaBaysianTest {
     public static void main(String[] args) throws IOException {
 
 
-        LFRDetectionClassifier learner = new LFRDetectionClassifier();
+//        LFRDetectionClassifier learner = new LFRDetectionClassifier();
 
 //        DDM_Classifier learner = new DDM_Classifier();
-//        IncreBayes learner = new IncreBayes();
+        IncreBayes learner = new IncreBayes();
 //        NaiveBayes learner = new NaiveBayes();
+//        DecisionStumpTutorial learner = new DecisionStumpTutorial();
         //定义stream
         LfrConceptDriftStream stream =  new LfrConceptDriftStream();
 //        SEAGenerator stream = new SEAGenerator();
@@ -47,7 +48,7 @@ public class moaBaysianTest {
         int numberSamples = 0;
         boolean isTesting = true;
 
-        File data_acc = new File("/home/sue/Result/usenet1_ANB.txt");
+        File data_acc = new File("/home/sue/Result/HRTU_Incre.txt");
         data_acc.createNewFile();
         BufferedWriter out = new BufferedWriter(new FileWriter(data_acc));
 
@@ -61,10 +62,11 @@ public class moaBaysianTest {
                 }
                 numberSamples++;
                 accuracy = 100.0 * (double) numberSamplesCorrect/(double) numberSamples;
-                confu_mat = learner.getConfusion_mat();
-                out.write(String.format("%.2f\t%d\t%d\t%d\t%d\t%d\n",accuracy,numberSamples,confu_mat[0],confu_mat[1],confu_mat[2],confu_mat[3]));
+//                confu_mat = learner.getConfusion_mat();
+//                out.write(String.format("%.2f\t%d\t%d\t%d\t%d\t%d\n",accuracy,numberSamples,confu_mat[0],confu_mat[1],confu_mat[2],confu_mat[3]));
+//                out.flush();
+                out.write(String.format("%d\t%.2f\n",numberSamples,accuracy));
                 out.flush();
-
             }
 
             learner.trainOnInstance(trainInst);

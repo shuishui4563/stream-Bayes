@@ -113,7 +113,8 @@ public class IncreBayes extends AbstractClassifier {
     }
 
     protected AttributeClassObserver newNominalClassObserver() {
-        return new NominalAttributeClassObserver();
+
+        return new DIBNomialAttributeObserver();
     }
 
     protected AttributeClassObserver newNumericClassObserver() {
